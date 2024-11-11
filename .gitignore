@@ -1,1 +1,7 @@
 /build
+
+
+#Linux development speciffic stuff
+/bin
+.vscode
+Makefile
