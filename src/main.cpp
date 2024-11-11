@@ -18,6 +18,12 @@ int main() {
     DisableCursor();
 
 
+    // Cube setup
+    Texture2D texture = LoadTexture("test/512x512texture.png");
+    Model testCube = LoadModel("test/cube.obj");
+    testCube.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = texture;
+
+
     float rotationAngle = 0.0f; // Rotation angle of pyramid
 
     while (!WindowShouldClose()) {
@@ -46,6 +52,8 @@ int main() {
         DrawTriangle3D(top, base3, base2, GREEN);     // Right face
         DrawTriangle3D(top, base4, base3, BLUE);      // Back face
         DrawTriangle3D(top, base1, base4, YELLOW);    // Left face
+
+        DrawModel(testCube, (Vector3){ 3.0f, 3.0f, 3.0f }, 1.0f, WHITE);  // Draw the model at (0, 0, 0
 
         rlPopMatrix();
 
